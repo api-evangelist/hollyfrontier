@@ -1,0 +1,101 @@
+generated: '2026-09-13'
+method: probed
+source: live GET of the named /.well-known/ path list on every host this record knows
+note: >-
+  HollyFrontier publishes no /.well-known/ discovery surface. Four of the five hosts
+  probed (www.hollyfrontier.com, hollyfrontier.com, investor.hollyfrontier.com and the
+  redirect target www.hfsinclair.com) are the same Q4 Inc investor-relations web farm
+  behind Cloudflare, and that platform answers HTTP 200 with an 11-byte body reading
+  "Invalid key" for EVERY /.well-known/* path, including a negative-control path that
+  cannot exist. Those 200s are a catch-all, not documents — path_echo_control failed on
+  all four, so no document is recorded and NO WellKnown or SecurityTxt pointer is
+  emitted. customerportal.hollyfrontier.com (a DTN-operated customer portal) returns
+  honest 404s on every path.
+hit_count: 0
+path_echo_control: failed
+soft_404_control:
+  path: /.well-known/hollyfrontier-negative-control-7f3ab91c.json
+  status: 200
+  bytes: 11
+  body: Invalid key
+  hosts_affected:
+    - www.hollyfrontier.com
+    - hollyfrontier.com
+    - investor.hollyfrontier.com
+    - www.hfsinclair.com
+hosts:
+  - host: https://www.hollyfrontier.com
+    note: catch-all — every /.well-known/* path returns 200 "Invalid key" (11 bytes); treated as a miss
+    documents:
+      - {path: /.well-known/security.txt, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/openid-configuration, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/oauth-authorization-server, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/oauth-protected-resource, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/api-catalog, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/ai-plugin.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent-card.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/apis.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /apis.json, status: 403, file: null, hit: false, reason: cloudflare-managed-challenge}
+      - {path: /apis.yml, status: 403, file: null, hit: false, reason: cloudflare-managed-challenge}
+      - {path: /llms.txt, status: 404, file: null, hit: false}
+  - host: https://hollyfrontier.com
+    note: same Q4 web farm as www; identical catch-all behavior
+    documents:
+      - {path: /.well-known/security.txt, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/openid-configuration, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/oauth-authorization-server, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/oauth-protected-resource, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/api-catalog, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/ai-plugin.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent-card.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/apis.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /apis.json, status: 403, file: null, hit: false, reason: cloudflare-managed-challenge}
+      - {path: /apis.yml, status: 403, file: null, hit: false, reason: cloudflare-managed-challenge}
+      - {path: /llms.txt, status: 404, file: null, hit: false}
+  - host: https://investor.hollyfrontier.com
+    note: Q4 Inc investor-relations host; identical catch-all behavior
+    documents:
+      - {path: /.well-known/security.txt, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/openid-configuration, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/oauth-authorization-server, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/oauth-protected-resource, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/api-catalog, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/ai-plugin.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent-card.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/apis.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /apis.json, status: 403, file: null, hit: false, reason: cloudflare-managed-challenge}
+      - {path: /apis.yml, status: 403, file: null, hit: false, reason: cloudflare-managed-challenge}
+  - host: https://customerportal.hollyfrontier.com
+    note: >-
+      DTN-operated customer portal (member login). Honest 404s on every path — no
+      catch-all, and no discovery document published.
+    documents:
+      - {path: /.well-known/security.txt, status: 404, file: null, hit: false}
+      - {path: /.well-known/openid-configuration, status: 404, file: null, hit: false}
+      - {path: /.well-known/oauth-authorization-server, status: 404, file: null, hit: false}
+      - {path: /.well-known/oauth-protected-resource, status: 404, file: null, hit: false}
+      - {path: /.well-known/api-catalog, status: 404, file: null, hit: false}
+      - {path: /.well-known/ai-plugin.json, status: 404, file: null, hit: false}
+      - {path: /.well-known/agent-card.json, status: 404, file: null, hit: false}
+      - {path: /.well-known/agent.json, status: 404, file: null, hit: false}
+      - {path: /.well-known/apis.json, status: 404, file: null, hit: false}
+      - {path: /apis.json, status: 404, file: null, hit: false}
+      - {path: /apis.yml, status: 404, file: null, hit: false}
+      - {path: /openapi.json, status: 404, file: null, hit: false}
+      - {path: /swagger.json, status: 404, file: null, hit: false}
+      - {path: /api-docs, status: 404, file: null, hit: false}
+      - {path: /llms.txt, status: 404, file: null, hit: false}
+  - host: https://www.hfsinclair.com
+    note: >-
+      Redirect target of www.hollyfrontier.com (301). Probed because the declared Website
+      resolves here; identical Q4 catch-all behavior. HF Sinclair is profiled separately.
+    documents:
+      - {path: /.well-known/security.txt, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/api-catalog, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent-card.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/agent.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /.well-known/apis.json, status: 200, file: null, hit: false, reason: catch-all-body}
+      - {path: /llms.txt, status: 404, file: null, hit: false}
