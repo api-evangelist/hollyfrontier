@@ -1,7 +1,9 @@
 ---
 title: HollyFrontier sets 4Q earnings release, conference webcast
 url: https://journalrecord.com/2021/01/08/hollyfrontier-sets-4q-earnings-release-conference-webcast/
-date: '2026-05-25'
+published: '2021-01-08'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"HollyFrontier" press release artificial intelligence'
 position: 1
 source: serpapi-google

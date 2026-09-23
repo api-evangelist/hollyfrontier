@@ -1,7 +1,9 @@
 ---
 title: HollyFrontier Corporation Completes Merger
 url: https://www.prnewswire.com/news-releases/hollyfrontier-corporation-completes-merger-124844164.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"HollyFrontier" press release artificial intelligence'
 position: 5
 source: serpapi-google

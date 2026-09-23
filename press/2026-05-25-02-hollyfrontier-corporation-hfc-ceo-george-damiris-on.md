@@ -1,7 +1,9 @@
 ---
 title: HollyFrontier Corporation (HFC) CEO George Damiris on ...
 url: https://seekingalpha.com/article/4301168-hollyfrontier-corporation-hfc-ceo-george-damiris-on-q3-2019-results-earnings-call-transcript
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"HollyFrontier" press release artificial intelligence'
 position: 2
 source: serpapi-google
