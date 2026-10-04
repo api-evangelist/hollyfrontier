@@ -106,3 +106,10 @@ x-coverage:
     - url: https://api.github.com/orgs/hollyfrontier
       status: 404
   checked: '2026-09-13'
+x-status: acquired
+x-acquired-by: hf-sinclair
+x-parent: hf-sinclair
+x-relationship: merger
+x-acquired-date: '2022-03'
+x-status-source: "https://www.sec.gov/Archives/edgar/data/1915657/000119312522074381/d326950dex991.htm"
+x-status-evidence: "On 2022-03-14 HollyFrontier became a wholly owned subsidiary of the new HF Sinclair Corporation, which replaced it on the NYSE as DINO, in the Sinclair Oil combination (roadmap#812)"
